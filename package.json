@@ -23,7 +23,10 @@
     "babel-tape-runner": "^2.0.1",
     "tape": "^4.6.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.18.1",
+    "react-datetime": "^2.8.10"
+  },
   "scripts": {
     "prepublish": "npm run compile",
     "test": "npm run compile && babel-tape-runner test/*.js",
