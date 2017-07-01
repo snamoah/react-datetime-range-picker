@@ -130,10 +130,8 @@ class DatetimeRangePicker extends Component {
     classes = date.isSame(start, 'day') ? `${classes} rdtActive` : classes;
 
     return (
-      <td
-        {...rest}
-        className={classes}
-      >
+      <td {...rest}
+        className={classes}>
         {currentDate.date()}
       </td>
     );
@@ -146,21 +144,18 @@ class DatetimeRangePicker extends Component {
       <div
         className={this.props.className}
         onFocus={this.onFocus.bind(this)}
-        onBlur={this.onBlur.bind(this)}
-      >
+        onBlur={this.onBlur.bind(this)}>
         <Datetime
           {...startProps}
           isValidDate={this.props.isValidStartDate}
           onChange={this.onStartDateChange.bind(this)}
-          renderDay={this.renderDay.bind(this)}
-        />
+          renderDay={this.renderDay.bind(this)} />
 
         <Datetime
           {...endProps}
           isValidDate={this.isValidEndDate.bind(this)}
           onChange={this.onEndDateChange.bind(this)}
-          renderDay={this.renderDay.bind(this)}
-        />
+          renderDay={this.renderDay.bind(this)} />
       </div>
     );
   }
