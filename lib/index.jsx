@@ -92,7 +92,8 @@ class DatetimeRangePicker extends Component {
   }
 
   isValidEndDate(currentDate, selectedDate) {
-    return this.validateMinDate(currentDate) && this.props.isValidEndDate(date, selectedDate);
+    return this.validateMinDate(currentDate)
+      && this.props.isValidEndDate(currentDate, selectedDate);
   }
 
   onStartDateChange(date) {
