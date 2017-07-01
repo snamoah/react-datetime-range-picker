@@ -196,7 +196,7 @@ DatetimeRangePicker.propTypes = {
   utc: PropTypes.bool,
   input: PropTypes.bool,
   inline: PropTypes.bool,
-  onBlur: PropTypes.bool,
+  onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   locale: PropTypes.string,
   onChange: PropTypes.func,
