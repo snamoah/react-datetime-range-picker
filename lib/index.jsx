@@ -127,8 +127,8 @@ class DatetimeRangePicker extends Component {
     let classes = date.isBetween(start, end, 'day')
       ? `${props.className} in-selecting-range` : props.className;
 
-    // add rdtActive to selected startdate in enddate picker
-    classes = date.isSame(start, 'day') ? `${classes} rdtActive` : classes;
+    // add rdtActive to selected startdate and endDate in pickers
+    classes = date.isSame(start, 'day') || date.isSame(end, 'day') ? `${classes} rdtActive` : classes;
 
     return (
       <td {...rest}
