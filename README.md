@@ -54,14 +54,10 @@ Almost all the props available for [react-datetime](https://github.com/YouCanBoo
 | onEndDateBlur | `Function` | `() => {}` | Callback is triggered when user clicks outside the end date input. The callback receives the selected `moment` object as only parameter, if the date in the input is valid. If the date in the input is not valid, the callback returned. |
 | onEndDateFocus | `Function` | `() => {}` | Callback trigger for when the user opens the end date datepicker. |
 | onEndDateChange | `Function` | `() => {}` | This callback is triggered everytime the end date changes. It receives the selected `date` as the only parameter. |
-| onStartDateBlur | `Function` | `() => {}` | This callback is trigger when user clicks
-outside of the start date input. The callback receives the selected start date as the a
-parameter |
+| onStartDateBlur | `Function` | `() => {}` | This callback is trigger when user clicks outside of the start date input. The callback receives the selected start date as the a parameter |
 | onStartDateFocus | `Function` | `() => {}` | Callback trigger for when the user opens the end date datepicker. |
 | onStartDateChange | `Function` | `() => {}` | Callback trigger for when start date changes. This callback receives selected `moment` object as a parameter. |
-| pickerClassName | `String` | `''` | CSS class to attach to outer `div` that wraps the
-individual pickers. This class is applied to both the start and end pickers. This is
-particular useful if you want to add `col-*` |
+| pickerClassName | `String` | `''` | CSS class to attach to outer `div` that wraps the individual pickers. This class is applied to both the start and end pickers. This is particular useful if you want to add `col-*` |
 | startTimeConstraints | `Object` | `null` | Add some constraints to the start timepicker. It accepts an object with the format `{ hours: { min: 9, max: 15, step: 2 }}`, this example means the hours can't be lower than `9` and higher than `15`, and it will change adding or subtracting 2 hours everytime the buttons are clicked. The constraints can be added to the `hours`, `minutes`, `seconds` and `milliseconds`. |
 | endTimeConstraints | `Object` | `null` | Add some constraints to the end timepicker. It accepts an object with the format `{ hours: { min: 9, max: 15, step: 2 }}`, this example means the hours can't be lower than `9` and higher than `15`, and it will change adding or subtracting 2 hours everytime the buttons are clicked. The constraints can be added to the `hours`, `minutes`, `seconds` and `milliseconds`. |
 
