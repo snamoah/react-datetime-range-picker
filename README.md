@@ -1,6 +1,6 @@
 # react-datetime-range-picker
 
-This is a datetime range picker based off of [react-datetime](https://github.com/YouCanBookMe/react-datetime). It is highly customizable and isn't dependent on jQueery.
+This is a datetime range picker based off of [react-datetime](https://github.com/YouCanBookMe/react-datetime). It is highly customizable and isn't dependent on jQuery.
 
 ## Installation
 
