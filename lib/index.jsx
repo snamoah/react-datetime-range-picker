@@ -62,7 +62,6 @@ class DatetimeRangePicker extends Component {
   calcStartTimeProps() {
     const baseProps = this.calcBaseProps();
     const inputProps = this.getInputProps();
-    const timeConstraints = { ...this.props. }
 
     return {
       ...baseProps,
