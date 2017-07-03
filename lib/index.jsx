@@ -62,6 +62,7 @@ class DatetimeRangePicker extends Component {
   calcStartTimeProps() {
     const baseProps = this.calcBaseProps();
     const inputProps = this.getInputProps();
+    const timeConstraints = { ...this.props. }
 
     return {
       ...baseProps,
@@ -181,14 +182,14 @@ DatetimeRangePicker.defaultProps = {
   inputProps: undefined,
   startDate: new Date(),
   onEndDateBlur: () => {},
-  endTimeConstraints: null,
+  endTimeConstraints: {},
   onEndDateFocus: () => {},
   isValidStartDate: () => true,
   isValidEndDate: () => true,
   onStartDateBlur: () => {},
   onEndDateChange: () => {},    // This is called after onChange
   onStartDateFocus: () => {},
-  startTimeConstraints: null,
+  startTimeConstraints: {},
   onStartDateChange: () => {},  // This is called after onChange
 };
 
@@ -201,7 +202,7 @@ DatetimeRangePicker.propTypes = {
   onFocus: PropTypes.func,
   locale: PropTypes.string,
   onChange: PropTypes.func,
-  viewMode: PropTypes.string,
+  viewMode: PropTypes.oneOf(['years', 'months', 'days', 'time']),
   closeOnTab: PropTypes.bool,
   className: PropTypes.string,
   inputProps: PropTypes.object,   // eslint-disable-line
