@@ -13,8 +13,8 @@ class DatetimeRangePicker extends Component {
     super(props);
 
     this.state = {
-      end: moment(),
-      start: moment(),
+      start: moment(props.startDate) || moment(),
+      end: moment(props.endDate) || moment(),
     };
   }
 
