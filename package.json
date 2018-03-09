@@ -29,9 +29,9 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "moment": "^2.18.1",
+    "moment": "^2.19.3",
     "prop-types": "^15.5.10",
+    "react": "^15.6.1",
     "react-datetime": "^2.8.10"
   },
   "scripts": {
