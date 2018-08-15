@@ -3,6 +3,10 @@
   "description": "Resusable date time range picker",
   "version": "1.0.5",
   "author": "Samuel Amoah <sa.am@programmer.net>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snamoah/react-datetime-range-picker.git"
+  }
   "keywords": [
     "react",
     "date",
