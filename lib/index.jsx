@@ -15,7 +15,17 @@ class DatetimeRangePicker extends Component {
     this.state = {
       start: moment(props.startDate) || moment(),
       end: moment(props.endDate) || moment(),
+      startDate: moment(props.startDate) || moment(),
+      endDate: moment(props.endDate) || moment(),
     };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const newStartDate = moment(nextProps.startDate);
+    const newEndDate = moment(nextProps.endDate);
+    return newStartDate.isSame(prevState.startDate) && newEndDate.isSame(prevState.endDate)
+      ? {}
+      : { start: newStartDate, end: newEndDate, startDate: newStartDate, endDate: newEndDate }
   }
 
   getInputProps() {
@@ -66,7 +76,7 @@ class DatetimeRangePicker extends Component {
     return {
       ...baseProps,
       ...inputProps,
-      defaultValue: this.props.startDate,
+      value: this.state.start,
       onBlur: this.props.onStartDateBlur,
       onFocus: this.props.onStartDateFocus,
       timeConstraints: this.props.startTimeConstraints,
@@ -81,7 +91,7 @@ class DatetimeRangePicker extends Component {
       ...baseProps,
       ...inputProps,
       onBlur: this.props.onEndDateBlur,
-      defaultValue: this.props.endDate,
+      value: this.state.end,
       onFocus: this.props.onEndDateFocus,
       timeConstraints: this.props.endTimeConstraints,
     };
@@ -223,9 +233,9 @@ DatetimeRangePicker.propTypes = {
   onStartDateFocus: PropTypes.func,
   onStartDateChange: PropTypes.func,
   pickerClassName: PropTypes.string,
-  endDate: PropTypes.oneOfType([PropTypes.instanceOf(Moment), PropTypes.instanceOf(Date)]),
+  endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endTimeConstraints: PropTypes.object,   // eslint-disable-line
-  startDate: PropTypes.oneOfType([PropTypes.instanceOf(Moment), PropTypes.instanceOf(Date)]),
+  startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   startTimeConstraints: PropTypes.object,   // eslint-disable-line
   dateFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   timeFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
