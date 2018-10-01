@@ -13,10 +13,10 @@ class DatetimeRangePicker extends Component {
     super(props);
 
     this.state = {
-      start: moment(props.startDate) || moment(),
-      end: moment(props.endDate) || moment(),
-      startDate: props.startDate,
-      endDate: props.endDate,
+      start: null,
+      end: null,
+      startDate: null,
+      endDate: null,
     };
   }
 
@@ -24,8 +24,8 @@ class DatetimeRangePicker extends Component {
     return nextProps.startDate === prevState.startDate && nextProps.endDate === prevState.endDate
       ? {}
       : { 
-          start: moment(nextProps.startDate), 
-          end: moment(nextProps.endDate), 
+          start: moment(nextProps.startDate) || moment(), 
+          end: moment(nextProps.endDate) || moment(), 
           startDate: nextProps.startDate, 
           endDate: nextProps.endDate, 
         }
@@ -79,7 +79,6 @@ class DatetimeRangePicker extends Component {
     return {
       ...baseProps,
       ...inputProps,
-      defaultValue: this.props.defaultStartDate,
       value: this.state.start,
       onBlur: this.props.onStartDateBlur,
       onFocus: this.props.onStartDateFocus,
@@ -95,7 +94,6 @@ class DatetimeRangePicker extends Component {
       ...baseProps,
       ...inputProps,
       onBlur: this.props.onEndDateBlur,
-      defaultValue: this.props.defaultEndDate,
       value: this.state.end,
       onFocus: this.props.onEndDateFocus,
       timeConstraints: this.props.endTimeConstraints,
