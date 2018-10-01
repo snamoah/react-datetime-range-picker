@@ -33,8 +33,10 @@ Almost all the props available for [react-datetime](https://github.com/YouCanBoo
 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-| startDate | `Date` | `new Date()` | This sets the initial start date |
-| endDate | `Date` | `new Date()` | This sets the initial end date |
+| defaultStartDate | `Date` | `new Date()` | This sets the default/initial start date |
+| defaultEndDate | `Date` | `new Date()` | This sets the default/initial end date |
+| startDate | `Date` | `new Date()` | This sets a new value for the start date |
+| endDate | `Date` | `new Date()` | This sets a new value for the end date |
 | dateFormat | `Boolean` or `String` | `true` | Defines the format for the date. It accepts any `Moment` date format (not in localized format). If `true` the date will be displayed using the defaults for the current `locale`. If `false` the datepicker is disabled and the component can be used as timepicker. |
 | timeFormat | `Boolean` or `String` | `true` | Defines the format for the time. It accepts any `Moment` time format (not in localized format). If `true` the time will be displayed using the defaults for the current `locale`. If `false` the timepicker is disabled and the component can be used as datepicker. |
 | utc | `boolean` | `false` | When true, start and end time values will be interpreted as UTC. Otherwise they will default to the user's local timezone. |

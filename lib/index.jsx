@@ -15,17 +15,20 @@ class DatetimeRangePicker extends Component {
     this.state = {
       start: moment(props.startDate) || moment(),
       end: moment(props.endDate) || moment(),
-      startDate: moment(props.startDate) || moment(),
-      endDate: moment(props.endDate) || moment(),
+      startDate: props.startDate,
+      endDate: props.endDate,
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const newStartDate = moment(nextProps.startDate);
-    const newEndDate = moment(nextProps.endDate);
-    return newStartDate.isSame(prevState.startDate) && newEndDate.isSame(prevState.endDate)
+    return nextProps.startDate === prevState.startDate && nextProps.endDate === prevState.endDate
       ? {}
-      : { start: newStartDate, end: newEndDate, startDate: newStartDate, endDate: newEndDate }
+      : { 
+          start: moment(nextProps.startDate), 
+          end: moment(nextProps.endDate), 
+          startDate: nextProps.startDate, 
+          endDate: nextProps.endDate, 
+        }
   }
 
   getInputProps() {
@@ -76,6 +79,7 @@ class DatetimeRangePicker extends Component {
     return {
       ...baseProps,
       ...inputProps,
+      defaultValue: this.props.defaultStartDate,
       value: this.state.start,
       onBlur: this.props.onStartDateBlur,
       onFocus: this.props.onStartDateFocus,
@@ -91,6 +95,7 @@ class DatetimeRangePicker extends Component {
       ...baseProps,
       ...inputProps,
       onBlur: this.props.onEndDateBlur,
+      defaultValue: this.props.defaultEndDate,
       value: this.state.end,
       onFocus: this.props.onEndDateFocus,
       timeConstraints: this.props.endTimeConstraints,
@@ -233,9 +238,11 @@ DatetimeRangePicker.propTypes = {
   onStartDateFocus: PropTypes.func,
   onStartDateChange: PropTypes.func,
   pickerClassName: PropTypes.string,
+  defaultEndDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endTimeConstraints: PropTypes.object,   // eslint-disable-line
   startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
+  defaultStartDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   startTimeConstraints: PropTypes.object,   // eslint-disable-line
   dateFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   timeFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
