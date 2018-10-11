@@ -13,9 +13,22 @@ class DatetimeRangePicker extends Component {
     super(props);
 
     this.state = {
-      start: moment(props.startDate) || moment(),
-      end: moment(props.endDate) || moment(),
+      start: null,
+      end: null,
+      startDate: null,
+      endDate: null,
     };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return nextProps.startDate === prevState.startDate && nextProps.endDate === prevState.endDate
+      ? {}
+      : { 
+          start: moment(nextProps.startDate) || moment(), 
+          end: moment(nextProps.endDate) || moment(), 
+          startDate: nextProps.startDate, 
+          endDate: nextProps.endDate, 
+        }
   }
 
   getInputProps() {
@@ -66,7 +79,7 @@ class DatetimeRangePicker extends Component {
     return {
       ...baseProps,
       ...inputProps,
-      defaultValue: this.props.startDate,
+      value: this.state.start,
       onBlur: this.props.onStartDateBlur,
       onFocus: this.props.onStartDateFocus,
       timeConstraints: this.props.startTimeConstraints,
@@ -81,7 +94,7 @@ class DatetimeRangePicker extends Component {
       ...baseProps,
       ...inputProps,
       onBlur: this.props.onEndDateBlur,
-      defaultValue: this.props.endDate,
+      value: this.state.end,
       onFocus: this.props.onEndDateFocus,
       timeConstraints: this.props.endTimeConstraints,
     };
@@ -223,9 +236,11 @@ DatetimeRangePicker.propTypes = {
   onStartDateFocus: PropTypes.func,
   onStartDateChange: PropTypes.func,
   pickerClassName: PropTypes.string,
-  endDate: PropTypes.oneOfType([PropTypes.instanceOf(Moment), PropTypes.instanceOf(Date)]),
+  defaultEndDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
+  endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endTimeConstraints: PropTypes.object,   // eslint-disable-line
-  startDate: PropTypes.oneOfType([PropTypes.instanceOf(Moment), PropTypes.instanceOf(Date)]),
+  startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
+  defaultStartDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   startTimeConstraints: PropTypes.object,   // eslint-disable-line
   dateFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   timeFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
