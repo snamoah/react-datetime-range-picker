@@ -4,8 +4,8 @@ This is a datetime range picker based off of [react-datetime](https://github.com
 
 ## Installation
 
-```bash
-> npm install --save react-datetime-range-picker
+```sh
+> npm install --save react-datetime react-datetime-range-picker
 ```
 
 
