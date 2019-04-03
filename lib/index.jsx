@@ -110,6 +110,10 @@ class DatetimeRangePicker extends Component {
   }
 
   onStartDateChange(date) {
+    if (typeof date === 'string') {
+      return;
+    }
+    
     const options = {
       start: date,
     };
@@ -125,6 +129,10 @@ class DatetimeRangePicker extends Component {
   }
 
   onEndDateChange(date) {
+    if (typeof date === 'string') {
+      return;
+    }
+    
     this.setState({ end: date }, () => {
       this.props.onChange(this.propsToPass());
       this.props.onEndDateChange(this.propsToPass().end);
