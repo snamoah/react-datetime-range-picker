@@ -1,7 +1,8 @@
 {
   "name": "react-datetime-range-picker",
   "description": "Reusable date time range picker",
-  "version": "2.0.3",
+  "version": "2.0.4",
+  "license": "MIT",
   "author": "Samuel Amoah <sa.am@programmer.net>",
   "repository": {
     "type": "git",
