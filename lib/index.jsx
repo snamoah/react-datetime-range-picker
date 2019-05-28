@@ -244,8 +244,8 @@ DatetimeRangePicker.propTypes = {
   onStartDateFocus: PropTypes.func,
   onStartDateChange: PropTypes.func,
   pickerClassName: PropTypes.string,
-  defaultEndDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
-  endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
+  defaultEndDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
+  endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
   endTimeConstraints: PropTypes.object,   // eslint-disable-line
   startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
   defaultStartDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
