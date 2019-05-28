@@ -23,11 +23,11 @@ class DatetimeRangePicker extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     return nextProps.startDate === prevState.startDate && nextProps.endDate === prevState.endDate
       ? {}
-      : { 
-          start: moment(nextProps.startDate) || moment(), 
-          end: moment(nextProps.endDate) || moment(), 
-          startDate: nextProps.startDate, 
-          endDate: nextProps.endDate, 
+      : {
+          start: moment(nextProps.startDate) || moment(),
+          end: moment(nextProps.endDate) || moment(),
+          startDate: nextProps.startDate,
+          endDate: nextProps.endDate,
         }
   }
 
@@ -113,7 +113,7 @@ class DatetimeRangePicker extends Component {
     if (typeof date === 'string') {
       return;
     }
-    
+
     const options = {
       start: date,
     };
@@ -132,7 +132,7 @@ class DatetimeRangePicker extends Component {
     if (typeof date === 'string') {
       return;
     }
-    
+
     this.setState({ end: date }, () => {
       this.props.onChange(this.propsToPass());
       this.props.onEndDateChange(this.propsToPass().end);
@@ -247,8 +247,8 @@ DatetimeRangePicker.propTypes = {
   defaultEndDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
   endTimeConstraints: PropTypes.object,   // eslint-disable-line
-  startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
-  defaultStartDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date)]),
+  startDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
+  defaultStartDate: PropTypes.oneOfType([PropTypes.instanceOf(moment), PropTypes.instanceOf(Date), PropTypes.string]),
   startTimeConstraints: PropTypes.object,   // eslint-disable-line
   dateFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   timeFormat: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
