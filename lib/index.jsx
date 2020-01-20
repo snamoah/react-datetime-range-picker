@@ -150,7 +150,7 @@ class DatetimeRangePicker extends Component {
   renderDay(props, currentDate) {
     const { start, end } = this.state;
     const { className, ...rest } = props;
-    const date = moment(props.key, 'M_D');
+    const date = currentDate;
 
     // style all dates in range
     let classes = date.isBetween(start, end, 'day')
