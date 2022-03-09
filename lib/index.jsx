@@ -32,12 +32,6 @@ class DatetimeRangePicker extends Component {
   }
 
   getInputProps() {
-    const inputReadOnlyStyle = {
-      cursor: 'pointer',
-      backgroundColor: 'white',
-      border: '1px solid #e2e2e2',
-    };
-
     return this.props.input
       ? this.props.inputProps
       : {
@@ -45,7 +39,7 @@ class DatetimeRangePicker extends Component {
         inputProps: {
           ...this.props.inputProps,     // merge inputProps with default
           readOnly: true,
-          style: inputReadOnlyStyle,
+          className: 'readOnly',
         },
       };
   }
