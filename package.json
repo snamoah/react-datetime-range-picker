@@ -42,6 +42,7 @@
     "react-datetime": "^3.2.0"
   },
   "scripts": {
+    "prepare": "npm run compile",
     "prepublish": "npm run compile",
     "test": "npm run compile && babel-tape-runner test/*.js",
     "compile": "npm run lint && babel lib --out-dir dist --copy-files",
